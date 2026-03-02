@@ -231,7 +231,7 @@ export default function Translation() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="mt-20 md:mt-40 bg-slate-900 rounded-[40px] md:rounded-[60px] p-8 md:p-20 relative overflow-hidden text-center"
+          className="mt-20 md:mt-40 mb-14 bg-slate-900 rounded-[40px] md:rounded-[60px] p-8 md:p-20 relative overflow-hidden text-center"
         >
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 md:mb-8 leading-tight">
@@ -247,12 +247,7 @@ export default function Translation() {
               >
                 Inquire Now
               </Link>
-              <Link 
-                to="/services" 
-                className="px-8 md:px-12 py-4 md:py-6 bg-white/5 border border-white/10 text-white rounded-full font-black text-base md:text-lg hover:bg-white hover:text-slate-900 transition-all text-center"
-              >
-                All Services
-              </Link>
+            
             </div>
           </div>
         </motion.div>

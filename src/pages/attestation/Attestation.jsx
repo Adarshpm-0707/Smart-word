@@ -59,24 +59,89 @@ export default function Attestation() {
   const { scrollYProgress } = useScroll();
 
   // Scroll Transformations (Parallax)
-  // Adjusted for responsiveness to prevent massive horizontal overflow
   const bgTextX = useTransform(scrollYProgress, [0, 1], ["15%", "-35%"]);
   const heroImgScrollY = useTransform(scrollYProgress, [0, 0.5], [0, 80]);
 
+  // ✅ Updated Services Array with correct 'link' paths
   const services = [
-    { title: "Registered Notary Attestation", desc: "Verification for official UAE legal use.", icon: <Stamp /> },
-    { title: "Equivalency & MOE Support", desc: "Recognition by UAE Ministry of Education.", icon: <GraduationCap /> },
-    { title: "KHDA Attestation", desc: "Validation of Dubai educational certificates.", icon: <Building2 /> },
-    { title: "Marriage Certificate Attestation", desc: "Legal validation for visa & immigration.", icon: <Heart /> },
-    { title: "MOFA Attestation", desc: "Foreign affairs authentication.", icon: <Globe /> },
-    { title: "Salary Certificate Attestation", desc: "Employment & income verification.", icon: <Briefcase /> },
-    { title: "MOJ Attestation", desc: "Ministry of Justice document authentication.", icon: <Gavel /> },
-    { title: "Embassy Support", desc: "Home country embassy legalization.", icon: <Flag /> },
-    { title: "True Copy Attestation", desc: "Certified legal photocopies.", icon: <FileCheck /> },
-    { title: "Comprehensive Notary", desc: "Full legalization workflow.", icon: <ShieldCheck /> },
-    { title: "Birth Certificate Attestation", desc: "Residency & legal validation.", icon: <ClipboardCheck /> },
-    { title: "Death Certificate Attestation", desc: "Inheritance & legal processes.", icon: <FileCheck /> },
-    { title: "UAE Embassy Legalization", desc: "International document approval.", icon: <Building2 /> },
+    { 
+      title: "Registered Notary Attestation", 
+      desc: "Verification for official UAE legal use.", 
+      icon: <Stamp />, 
+      link: "/attestation/notary" 
+    },
+    { 
+      title: "Equivalency & MOE Support", 
+      desc: "Recognition by UAE Ministry of Education.", 
+      icon: <GraduationCap />, 
+      link: "/attestation/equivalency" 
+    },
+    { 
+      title: "KHDA Attestation", 
+      desc: "Validation of Dubai educational certificates.", 
+      icon: <Building2 />, 
+      link: "/attestation/khda" 
+    },
+    { 
+      title: "Marriage Certificate Attestation", 
+      desc: "Legal validation for visa & immigration.", 
+      icon: <Heart />, 
+      link: "/attestation/marriage-certificate" 
+    },
+    { 
+      title: "MOFA Attestation", 
+      desc: "Foreign affairs authentication.", 
+      icon: <Globe />, 
+      link: "/attestation/mofa" 
+    },
+    { 
+      title: "Salary Certificate Attestation", 
+      desc: "Employment & income verification.", 
+      icon: <Briefcase />, 
+      link: "/attestation/salary-certificate" 
+    },
+    { 
+      title: "MOJ Attestation", 
+      desc: "Ministry of Justice document authentication.", 
+      icon: <Gavel />, 
+      link: "/attestation/moj" 
+    },
+    { 
+      title: "Embassy Document Attestation", 
+      desc: "Home country embassy legalization.", 
+      icon: <Flag />, 
+      link: "/attestation/home-country" // ✅ Updated to point to Home Country Attestation
+    },
+    { 
+      title: "True Copy Attestation", 
+      desc: "Certified legal photocopies.", 
+      icon: <FileCheck />, 
+      link: "/attestation/true-copy" 
+    },
+    { 
+      title: "Comprehensive Notary", 
+      desc: "Full legalization workflow.", 
+      icon: <ShieldCheck />, 
+      link: "/attestation/notary" 
+    },
+    { 
+      title: "Birth Certificate Attestation", 
+      desc: "Residency & legal validation.", 
+      icon: <ClipboardCheck />, 
+      link: "/attestation/birth-certificate" 
+    },
+    { 
+      title: "Death Certificate Attestation", 
+      desc: "Inheritance & legal processes.", 
+      icon: <FileCheck />, 
+      link: "/attestation/death-certificate" 
+    },
+    { 
+      title: "UAE Embassy Legalization", 
+      desc: "International document approval.", 
+      icon: <Building2 />, 
+      link: "/attestation/embassy" 
+    },
   ];
 
   return (
@@ -185,6 +250,9 @@ export default function Attestation() {
               whileHover={{ y: -12, scale: 1.02 }}
               className="group bg-white rounded-[40px] p-8 md:p-12 shadow-xl shadow-slate-200/40 border border-transparent hover:border-[#2b9cb3]/20 transition-all duration-500 flex flex-col h-full relative overflow-hidden"
             >
+              {/* ✅ Link Overlay to make the whole card clickable */}
+              <Link to={service.link} className="absolute inset-0 z-20" aria-label={service.title} />
+
               {/* Background Number Decal */}
               <span className="absolute top-10 right-10 text-6xl md:text-7xl font-black text-slate-900/5 group-hover:text-[#2b9cb3]/10 transition-colors pointer-events-none">
                 {index + 1 < 10 ? `0${index + 1}` : index + 1}
@@ -203,15 +271,12 @@ export default function Attestation() {
               </p>
 
               <div className="pt-8 border-t border-slate-100 relative z-10">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-3 text-slate-900 text-[10px] md:text-xs font-black uppercase tracking-widest group/btn transition-all"
-                >
+                <div className="inline-flex items-center gap-3 text-slate-900 text-[10px] md:text-xs font-black uppercase tracking-widest group/btn transition-all">
                   Start Case
                   <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-900 text-white flex items-center justify-center group-hover/btn:bg-[#2b9cb3] transition-all">
                     <ArrowRight size={18} />
                   </span>
-                </Link>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -223,7 +288,7 @@ export default function Attestation() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-24 md:mt-48 bg-slate-900 rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center"
+          className="mt-24 md:mt-48 mb-14 bg-slate-900 rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center"
         >
           {/* Animated Background Pattern */}
           <motion.div 
@@ -250,12 +315,7 @@ export default function Attestation() {
               >
                 Consult an Expert
               </Link>
-              <a 
-                href="tel:+971522402909" 
-                className="w-full sm:w-auto px-10 py-5 md:px-14 md:py-7 bg-white/5 border border-white/10 text-white rounded-full font-black text-sm md:text-lg hover:bg-white hover:text-slate-900 transition-all"
-              >
-                Call Now
-              </a>
+             
             </div>
           </div>
 

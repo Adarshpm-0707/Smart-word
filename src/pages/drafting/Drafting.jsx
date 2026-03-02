@@ -273,7 +273,7 @@ export default function Drafting() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-24 md:mt-48 bg-[#2b9cb3] rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center group"
+          className="mt-24 md:mt-48 mb-14 bg-slate-900 rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center group"
         >
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-6xl font-black text-white mb-6 md:mb-10 leading-tight">
@@ -287,10 +287,7 @@ export default function Drafting() {
                 className="w-full sm:w-auto px-10 py-5 md:px-14 md:py-7 bg-white text-[#2b9cb3] rounded-full font-black text-sm md:text-lg hover:scale-105 transition-transform shadow-2xl">
                 Book Consultation
               </Link>
-              <Link to="/services"
-                className="w-full sm:w-auto px-10 py-5 md:px-14 md:py-7 bg-slate-900 text-white rounded-full font-black text-sm md:text-lg hover:bg-slate-800 transition-all text-center">
-                All Services
-              </Link>
+             
             </div>
           </div>
         </motion.div>

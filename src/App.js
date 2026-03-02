@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import WhatsAppIcon from "./components/WhatsAppButton"; // Imported here
 
 /* ================= MAIN PAGES ================= */
 import Home from "./pages/Home";
@@ -16,7 +17,7 @@ import Drafting from "./pages/drafting/Drafting";
 import BusinessSteps from "./pages/businessSteps/BusinessSteps";
 import EmiratiPension from "./pages/emiratiPension/EmiratiPension";
 
-/* ================= TRANSLATION ================= */
+/* ================= TRANSLATION SERVICE PAGES ================= */
 import NormalTranslation from "./pages/translation/NormalTranslation";
 import SmartWordTranslation from "./pages/translation/SmartWordTranslation";
 import MedicalTranslation from "./pages/translation/MedicalTranslation";
@@ -37,20 +38,53 @@ import DigitalContent from "./pages/translation/DigitalContentTranslation";
 import SoftwareLocalization from "./pages/translation/SoftwareLocalization";
 import WebsiteLocalization from "./pages/translation/WebsiteLocalization";
 
-/* ================= DRAFTING ================= */
+/* ================= ATTESTATION SERVICE PAGES ================= */
+import BirthCertificate from "./pages/attestation/BirthCertificate";
+import DeathCertificate from "./pages/attestation/DeathCertificate";
+import EmbassyAttestation from "./pages/attestation/EmbassyAttestation";
+import EquivalencyAttestation from "./pages/attestation/EquivalencyAttestation";
+import HomeCountryAttestation from "./pages/attestation/HomeCountryAttestation";
+import KHDAAttestation from "./pages/attestation/KHDAAttestation";
+import MarriageCertificate from "./pages/attestation/MarriageCertificate";
+import MOFAAttestation from "./pages/attestation/MOFAAttestation";
+import MOJAttestation from "./pages/attestation/MOJAttestation";
+import NotaryAttestation from "./pages/attestation/NotaryAttestation";
+import SalaryCertificate from "./pages/attestation/SalaryCertificate";
+import TrueCopyAttestation from "./pages/attestation/TrueCopyAttestation";
+
+/* ================= NOTARIZATION SERVICE PAGES ================= */
+import AffidavitService from "./pages/notarization/AffidavitService";
+import BoardDrafting from "./pages/notarization/BoardDrafting";
+import BoardResolution from "./pages/notarization/BoardResolution";
+import CompanyLiquidation from "./pages/notarization/CompanyLiquidation";
+
+import HusbandSponsorship from "./pages/notarization/HusbandSponsorship";
+import LegalTranslationNotary from "./pages/notarization/LegalTranslationNotary";
+import LocalServiceAgent from "./pages/notarization/LocalServiceAgent";
+import MinutesOfMeeting from "./pages/notarization/MinutesOfMeeting";
+import MOAAmendment from "./pages/notarization/MOAAmendment";
+import MOAService from "./pages/notarization/MOAService";
+import NOCService from "./pages/notarization/NOCService";
+
+import POARevocation from "./pages/notarization/POARevocation";
+import PowerOfAttorneyNotary from "./pages/notarization/PowerOfAttorneyNotary";
+
+import WillTestament from "./pages/notarization/WillTestament";
+
+/* ================= DRAFTING SERVICE PAGES ================= */
 import JointVentureAgreement from "./pages/drafting/JointVentureAgreement";
 import LegalNotice from "./pages/drafting/LegalNoticeDrafting";
 import LoanAgreement from "./pages/drafting/LoanAgreement";
 import PartnershipAgreement from "./pages/drafting/PartnershipAgreement";
 import RentalTenancy from "./pages/drafting/RentalAgreement";
 
-/* ================= BUSINESS STEPS ================= */
+/* ================= BUSINESS STEPS SERVICE PAGES ================= */
 import Freezone from "./pages/businessSteps/FreezoneSetup";
 import Mainland from "./pages/businessSteps/MainlandSetup";
 import Offshore from "./pages/businessSteps/OffshoreSetup";
 import CorporateBank from "./pages/businessSteps/BankAccountOpening";
 
-/* ================= EMIRATI PENSION (FIXED IMPORTS) ================= */
+/* ================= EMIRATI PENSION SERVICE PAGES ================= */
 import GPSSARegistration from "./pages/emiratiPension/GPSSARegistration";
 import EmployerCancellation from "./pages/emiratiPension/EmployerCancellation";
 import ContributionProforma from "./pages/emiratiPension/ContributionProforma";
@@ -70,8 +104,7 @@ export default function App() {
 
         <main className="flex-1">
           <Routes>
-
-            {/* MAIN */}
+            {/* ========= MAIN ROUTES ========= */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
@@ -83,7 +116,7 @@ export default function App() {
             <Route path="/business-steps" element={<BusinessSteps />} />
             <Route path="/emirati-pension" element={<EmiratiPension />} />
 
-            {/* TRANSLATION */}
+            {/* ========= TRANSLATION ========= */}
             <Route path="/translation/normal-translation" element={<NormalTranslation />} />
             <Route path="/translation/smart-word-translation" element={<SmartWordTranslation />} />
             <Route path="/translation/medical-translation" element={<MedicalTranslation />} />
@@ -104,20 +137,50 @@ export default function App() {
             <Route path="/translation/software-localization" element={<SoftwareLocalization />} />
             <Route path="/translation/website-localization" element={<WebsiteLocalization />} />
 
-            {/* DRAFTING */}
+            {/* ========= ATTESTATION ========= */}
+            <Route path="/attestation/birth-certificate" element={<BirthCertificate />} />
+            <Route path="/attestation/death-certificate" element={<DeathCertificate />} />
+            <Route path="/attestation/embassy" element={<EmbassyAttestation />} />
+            <Route path="/attestation/equivalency" element={<EquivalencyAttestation />} />
+            <Route path="/attestation/home-country" element={<HomeCountryAttestation />} />
+            <Route path="/attestation/khda" element={<KHDAAttestation />} />
+            <Route path="/attestation/marriage-certificate" element={<MarriageCertificate />} />
+            <Route path="/attestation/mofa" element={<MOFAAttestation />} />
+            <Route path="/attestation/moj" element={<MOJAttestation />} />
+            <Route path="/attestation/notary" element={<NotaryAttestation />} />
+            <Route path="/attestation/salary-certificate" element={<SalaryCertificate />} />
+            <Route path="/attestation/true-copy" element={<TrueCopyAttestation />} />
+
+            {/* ========= NOTARIZATION ========= */}
+            <Route path="/notarization/affidavit" element={<AffidavitService />} />
+            <Route path="/notarization/board-drafting" element={<BoardDrafting />} />
+            <Route path="/notarization/board-resolution" element={<BoardResolution />} />
+            <Route path="/notarization/company-liquidation" element={<CompanyLiquidation />} />
+            <Route path="/notarization/husband-sponsorship" element={<HusbandSponsorship />} />
+            <Route path="/notarization/legal-translation" element={<LegalTranslationNotary />} />
+            <Route path="/notarization/local-service-agent" element={<LocalServiceAgent />} />
+            <Route path="/notarization/minutes-of-meeting" element={<MinutesOfMeeting />} />
+            <Route path="/notarization/moa-amendment" element={<MOAAmendment />} />
+            <Route path="/notarization/moa-service" element={<MOAService />} />
+            <Route path="/notarization/noc" element={<NOCService />} />
+            <Route path="/notarization/poa-revocation" element={<POARevocation />} />
+            <Route path="/notarization/power-of-attorney" element={<PowerOfAttorneyNotary />} />
+            <Route path="/notarization/will-testament" element={<WillTestament />} />
+
+            {/* ========= DRAFTING ========= */}
             <Route path="/drafting/joint-venture-agreement" element={<JointVentureAgreement />} />
             <Route path="/drafting/legal-notice" element={<LegalNotice />} />
             <Route path="/drafting/loan-agreement" element={<LoanAgreement />} />
             <Route path="/drafting/partnership-agreement" element={<PartnershipAgreement />} />
             <Route path="/drafting/rental-tenancy" element={<RentalTenancy />} />
 
-            {/* BUSINESS */}
+            {/* ========= BUSINESS STEPS ========= */}
             <Route path="/business-steps/freezone" element={<Freezone />} />
             <Route path="/business-steps/mainland" element={<Mainland />} />
             <Route path="/business-steps/offshore" element={<Offshore />} />
             <Route path="/business-steps/corporate-bank" element={<CorporateBank />} />
 
-            {/* EMIRATI PENSION */}
+            {/* ========= EMIRATI PENSION ========= */}
             <Route path="/emirati-pension/registration" element={<GPSSARegistration />} />
             <Route path="/emirati-pension/employer-cancellation" element={<EmployerCancellation />} />
             <Route path="/emirati-pension/contribution-proforma" element={<ContributionProforma />} />
@@ -126,10 +189,10 @@ export default function App() {
             <Route path="/emirati-pension/pension-certificate" element={<PensionCertificate />} />
             <Route path="/emirati-pension/end-of-service" element={<EndOfService />} />
             <Route path="/emirati-pension/update-employee" element={<UpdateEmployeeData />} />
-
           </Routes>
         </main>
 
+        <WhatsAppIcon /> {/* WhatsApp icon is here, fixed on all pages */}
         <Footer />
       </div>
     </BrowserRouter>

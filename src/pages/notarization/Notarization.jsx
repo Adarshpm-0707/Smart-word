@@ -42,7 +42,6 @@ const staggerContainer = {
   }
 };
 
-// Continuous Floating Animation (Time-based)
 const floating = {
   animate: {
     y: [0, -15, 0],
@@ -62,26 +61,27 @@ export default function Notarization() {
   const bgTextX = useTransform(scrollYProgress, [0, 1], ["10%", "-40%"]);
   const heroImgScrollY = useTransform(scrollYProgress, [0, 0.5], [0, 80]);
 
+  // ✅ Updated Services with correct 'link' paths matching App.js
   const services = [
-    { title: "Minutes of Meeting UAE", desc: "Formal records documenting corporate discussions and decisions.", icon: <FileText /> },
-    { title: "Affidavit & Translation", desc: "Legal sworn statements for governmental procedures.", icon: <Scale /> },
-    { title: "Board Resolution Notary", desc: "Official company decisions authorized and notarized.", icon: <Gavel /> },
-    { title: "Board Resolution Drafting", desc: "Professional drafting of director resolutions.", icon: <PenTool /> },
-    { title: "Company Liquidation", desc: "Legal documentation required for company closure.", icon: <Ban /> },
-    { title: "Husband Sponsorship NOC", desc: "No Objection Certificates for family sponsorship.", icon: <Users /> },
-    { title: "Local Service Agent Agreement", desc: "Mandatory agreements for UAE mainland setup.", icon: <Handshake /> },
-    { title: "Local Service Agent Dubai", desc: "Professional LSA appointment services.", icon: <Briefcase /> },
-    { title: "MOA Drafting & Notarization", desc: "Preparation of company constitutional documents.", icon: <ScrollText /> },
-    { title: "Memorandum of Association", desc: "Core legal document defining company ownership.", icon: <ScrollText /> },
-    { title: "MOA Amendment Services", desc: "Modify company ownership or structure legally.", icon: <RotateCcw /> },
-    { title: "Modify MOA Framework", desc: "Professional MOA updates aligned with UAE law.", icon: <RotateCcw /> },
-    { title: "NOC Issuance Services", desc: "Official authorization certificates issued legally.", icon: <ShieldAlert /> },
-    { title: "Notary & Translation Dubai", desc: "Integrated notarization and translation solutions.", icon: <Gavel /> },
-    { title: "POA Revocation Services", desc: "Legal cancellation of issued Power of Attorney.", icon: <Ban /> },
-    { title: "POA Notary Services", desc: "Official notarization authorizing representation.", icon: <ScrollText /> },
-    { title: "POA Legal Translation", desc: "Certified translation of POA documents.", icon: <Scale /> },
-    { title: "Will & Testament Dubai", desc: "Preparation and notarization protecting assets.", icon: <ShieldAlert /> },
-    { title: "Will & Testament UAE", desc: "Complete drafting ensuring legal protection.", icon: <PenTool /> },
+    { title: "Minutes of Meeting UAE", desc: "Formal records documenting corporate discussions and decisions.", icon: <FileText />, link: "/notarization/minutes-of-meeting" },
+    { title: "Affidavit & Translation", desc: "Legal sworn statements for governmental procedures.", icon: <Scale />, link: "/notarization/affidavit" },
+    { title: "Board Resolution Notary", desc: "Official company decisions authorized and notarized.", icon: <Gavel />, link: "/notarization/board-resolution" },
+    { title: "Board Resolution Drafting", desc: "Professional drafting of director resolutions.", icon: <PenTool />, link: "/notarization/board-drafting" },
+    { title: "Company Liquidation", desc: "Legal documentation required for company closure.", icon: <Ban />, link: "/notarization/company-liquidation" },
+    { title: "Husband Sponsorship NOC", desc: "No Objection Certificates for family sponsorship.", icon: <Users />, link: "/notarization/husband-sponsorship" },
+    { title: "Local Service Agent Agreement", desc: "Mandatory agreements for UAE mainland setup.", icon: <Handshake />, link: "/notarization/local-service-agent" },
+    { title: "Local Service Agent Dubai", desc: "Professional LSA appointment services.", icon: <Briefcase />, link: "/notarization/local-service-agent" },
+    { title: "MOA Drafting & Notarization", desc: "Preparation of company constitutional documents.", icon: <ScrollText />, link: "/notarization/moa-service" },
+    { title: "Memorandum of Association", desc: "Core legal document defining company ownership.", icon: <ScrollText />, link: "/notarization/moa-service" },
+    { title: "MOA Amendment Services", desc: "Modify company ownership or structure legally.", icon: <RotateCcw />, link: "/notarization/moa-amendment" },
+    { title: "Modify MOA Framework", desc: "Professional MOA updates aligned with UAE law.", icon: <RotateCcw />, link: "/notarization/moa-amendment" },
+    { title: "NOC Issuance Services", desc: "Official authorization certificates issued legally.", icon: <ShieldAlert />, link: "/notarization/noc" },
+    { title: "Notary & Translation Dubai", desc: "Integrated notarization and translation solutions.", icon: <Gavel />, link: "/notarization/legal-translation" },
+    { title: "POA Revocation Services", desc: "Legal cancellation of issued Power of Attorney.", icon: <Ban />, link: "/notarization/poa-revocation" },
+    { title: "POA Notary Services", desc: "Official notarization authorizing representation.", icon: <ScrollText />, link: "/notarization/power-of-attorney" },
+    { title: "POA Legal Translation", desc: "Certified translation of POA documents.", icon: <Scale />, link: "/notarization/legal-translation" },
+    { title: "Will & Testament Dubai", desc: "Preparation and notarization protecting assets.", icon: <ShieldAlert />, link: "/notarization/will-testament" },
+    { title: "Will & Testament UAE", desc: "Complete drafting ensuring legal protection.", icon: <PenTool />, link: "/notarization/will-testament" },
   ];
 
   return (
@@ -190,6 +190,9 @@ export default function Notarization() {
               whileHover={{ y: -15, scale: 1.02 }}
               className="group bg-white rounded-[40px] p-8 md:p-12 shadow-xl shadow-slate-200/40 border border-transparent hover:border-[#2b9cb3]/20 transition-all duration-500 flex flex-col h-full relative overflow-hidden"
             >
+              {/* ✅ Link Overlay to make entire card clickable */}
+              <Link to={service.link} className="absolute inset-0 z-20" aria-label={service.title} />
+
               {/* Background Number Decal */}
               <span className="absolute top-10 right-10 text-6xl md:text-7xl font-black text-slate-900/5 group-hover:text-[#2b9cb3]/10 transition-colors pointer-events-none">
                 {index + 1 < 10 ? `0${index + 1}` : index + 1}
@@ -208,15 +211,12 @@ export default function Notarization() {
               </p>
 
               <div className="pt-8 border-t border-slate-100 relative z-10">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-3 text-slate-900 text-[10px] md:text-xs font-black uppercase tracking-widest group/btn transition-all"
-                >
+                <div className="inline-flex items-center gap-3 text-slate-900 text-[10px] md:text-xs font-black uppercase tracking-widest group/btn transition-all">
                   Start Case
                   <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-900 text-white flex items-center justify-center group-hover/btn:bg-[#2b9cb3] transition-all">
                     <ArrowRight size={18} />
                   </span>
-                </Link>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -228,7 +228,7 @@ export default function Notarization() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-24 md:mt-48 bg-slate-900 rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center lg:text-left"
+          className="mt-24 md:mt-48 mb-14 bg-slate-900 rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center lg:text-left"
         >
           {/* Animated Background Pulse */}
           <motion.div 

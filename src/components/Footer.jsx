@@ -3,6 +3,10 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "../assets/SMARTWORD LOGO FOOTER.png";
 
 export default function Footer() {
+  const phoneNumber = "+971522402909";
+  const cleanNumber = phoneNumber.replace(/\s+/g, ""); // Removes spaces for the link
+  const emailAddress = "info@smartword.ae";
+
   return (
     <footer className="relative bg-[#0f172a] text-gray-300">
       {/* WAVE SVG */}
@@ -44,6 +48,8 @@ export default function Footer() {
               <li><Link to="/translation" className="hover:text-white transition">Translation</Link></li>
               <li><Link to="/attestation" className="hover:text-white transition">Attestation</Link></li>
               <li><Link to="/notarization" className="hover:text-white transition">Notarization</Link></li>
+              <li><Link to="/business-steps" className="hover:text-white transition">Business Steps</Link></li>
+              <li><Link to="/emirati-pension" className="hover:text-white transition">Emirati Pension</Link></li>
               <li><Link to="/drafting" className="hover:text-white transition">Drafting</Link></li>
             </ul>
           </div>
@@ -55,8 +61,6 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm">
               <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
-              <li><Link to="/business-steps" className="hover:text-white transition">Business Steps</Link></li>
-              <li><Link to="/emirati-pension" className="hover:text-white transition">Emirati Pension</Link></li>
               <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
             </ul>
           </div>
@@ -71,14 +75,26 @@ export default function Footer() {
                 <MapPin size={18} className="text-[#b59a6d]" />
                 <span>Dubai, UAE</span>
               </div>
-              <div className="flex items-center gap-3">
+              
+              {/* EMAIL LINK */}
+              <a 
+                href={`mailto:${emailAddress}`} 
+                className="flex items-center gap-3 hover:text-white transition group"
+              >
                 <Mail size={18} className="text-[#b59a6d]" />
-                <span>info@smartword.ae</span>
-              </div>
-              <div className="flex items-center gap-3">
+                <span className="group-hover:underline">{emailAddress}</span>
+              </a>
+
+              {/* WHATSAPP LINK */}
+              <a 
+                href={`https://wa.me/${cleanNumber}`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 hover:text-white transition group"
+              >
                 <Phone size={18} className="text-[#b59a6d]" />
-                <span>+971 00 000 0000</span>
-              </div>
+                <span className="group-hover:underline">{phoneNumber}</span>
+              </a>
             </div>
           </div>
 

@@ -262,7 +262,7 @@ export default function EmiratiPension() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-24 md:mt-48 bg-slate-900 rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center lg:text-left"
+          className="mt-24 md:mt-48 mb-14 bg-slate-900 rounded-[40px] md:rounded-[80px] p-10 md:p-24 relative overflow-hidden text-center lg:text-left"
         >
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl">
